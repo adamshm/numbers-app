@@ -29,7 +29,7 @@
                 let m = operand2Input.value;
                 let operation = operationSelect.value;
 
-                const response = await fetch("https://arithmetic-service-adamshm.onrender.com/${operation}/" + n + "/" + m);
+                const response = await fetch("https://arithmetic-service-adamshm.onrender.com/" + operation + "/" + n + "/" + m);
                 const result = await response.json();
 
                 document.getElementById("result").innerText = result;
