@@ -4,21 +4,48 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Arithmetic Calculator</title>
+        <style>
+            .column {
+                float: left;
+                width: 50%;
+                padding: 10px;
+                box-sizing: border-box;
+            }
+            .row::after {
+                content: "";
+                clear: both;
+                display: table;
+            }
+        </style>
     </head>
     <body>
-        <section>
-            <h2>Arithmetic</h2>
-            <input id="operand1"/>
-            <select id="operation">
-                <option value="add">+</option>
-                <option value="subtract">-</option>
-                <option value="multiply">*</option>
-                <option value="divide">/</option>
-            </select>
-            <input id="operand2"/>
-            <button onclick="performOperation()">=</button>
-            <label id="result"></label>
-        </section>
+        <div class="row">
+            <div class="column">          
+               <section>
+                <h2>Arithmetic</h2>
+                <input id="operand1"/> 
+                <select id="operation">
+                    <option value="add">+</option>
+                    <option value="subtract">-</option>
+                    <option value="multiply">*</option>
+                    <option value="divide">/</option>
+                </select>
+                <input id="operand2"/>
+                <button onclick="performOperation()">=</button>
+                <label id="result"></label>
+            </section>
+            </div>
+            <div class="column">
+                <section>
+                    <h2>Prime check</h2>                
+                    <label>Number to test:</label>
+                    <input id="numberToTest"/>
+                    <button onclick="isPrime()">Check</button>
+                    <label id="primeCheckResult"></label>  
+                </section>           
+            </div>       
+         </div>
+
         <script>
             async function performOperation() {
                 const operand1Input = document.getElementById("operand1");
@@ -33,6 +60,14 @@
                 const result = await response.json();
 
                 document.getElementById("result").innerText = result;
+            }
+
+            async function isPrime() {
+                const numberToTest = document.getElementById("numberToTest");            
+                let n = numberToTest.value;            
+                const response = await fetch("???" + n);
+                const result = await response.json();
+                document.getElementById("primeCheckResult").innerText = result;
             }
         </script>
     </body>
