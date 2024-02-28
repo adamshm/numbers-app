@@ -67,7 +67,7 @@
                 let n = numberToTest.value;            
                 const response = await fetch("https://primes-service-adamshm.onrender.com/primes/" + n);
                 const result = await response.json();
-                document.getElementById("primeCheckResult").innerText = result;
+                document.getElementById("primeCheckResult").innerText = primeCheckResult;
             }
         </script>
     </body>
