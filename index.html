@@ -84,9 +84,13 @@
                 let textToEncode = textToEncodeInput.value;
 
                 const response = await fetch("https://ciphers-service-adamshm.onrender.com/ciphers/caesar/" + textToEncode + "/3");
-                const encodedResult = await response.text();
-
-                document.getElementById("encodedResult").innerText = encodedResult;
+                
+                if (response.ok) {
+                    const encodedResult = await response.text();
+                    document.getElementById("encodedResult").innerText = encodedResult;
+                } else {
+                    console.error("Failed to encode text. Status: " + response.status);
+                }
             }
         </script>
     </body>
